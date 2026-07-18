@@ -1,0 +1,1540 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Becker & Partner Immobilien – Exklusive Immobilien. Persönlicher Service.</title>
+    <meta name="description" content="Ihr Premium-Immobilienmakler in Musterstadt. Exklusive Häuser, Wohnungen und Gewerbeimmobilien. Kostenlose Bewertung.">
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23C9A96E'/%3E%3Ctext x='50' y='70' font-family='Georgia' font-size='55' fill='white' text-anchor='middle' font-weight='bold'%3EB%3C/text%3E%3C/svg%3E">
+    
+    <!-- Font Awesome Free 6.5.0 – Lizenz: Icons: CC BY 4.0 / Font: SIL OFL 1.1 / Code: MIT License -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" 
+          integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" 
+          crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <style>
+        :root {
+            --primary: #1E293B;
+            --primary-dark: #0F172A;
+            --accent: #C9A96E;
+            --accent-light: #DDD0B8;
+            --bg: #FAFAF9;
+            --bg-warm: #F5F5F4;
+            --surface: #FFFFFF;
+            --text: #1E293B;
+            --text-muted: #64748B;
+            --border: #E7E5E4;
+            --success: #059669;
+            --shadow: 0 10px 40px rgba(0,0,0,0.08);
+            --shadow-hover: 0 25px 60px rgba(0,0,0,0.12);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-weight: 600;
+            line-height: 1.15;
+        }
+
+        /* ========== NAVIGATION ========== */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.4s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+            padding: 0.8rem 5%;
+        }
+
+        .logo {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            transition: color 0.3s;
+        }
+
+        nav.scrolled .logo { color: var(--primary); }
+        .logo i { color: var(--accent); font-size: 1.4rem; }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: rgba(255,255,255,0.85);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav.scrolled .nav-links a { color: var(--text-muted); }
+        nav.scrolled .nav-links a:hover { color: var(--primary); }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after { width: 100%; }
+
+        .nav-cta {
+            background: var(--accent);
+            color: var(--primary-dark) !important;
+            padding: 0.6rem 1.8rem;
+            border-radius: 4px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta::after { display: none !important; }
+
+        .nav-cta:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(201, 169, 110, 0.3);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        nav.scrolled .mobile-menu-btn { color: var(--primary); }
+
+        /* ========== HERO ========== */
+        .hero {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: 8rem;
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.3) 0%, rgba(15, 23, 42, 0.85) 100%),
+                        url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=80') center/cover no-repeat;
+        }
+
+        .hero-content {
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 5%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(201, 169, 110, 0.2);
+            border: 1px solid rgba(201, 169, 110, 0.4);
+            color: var(--accent);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            color: #fff;
+            margin-bottom: 1rem;
+            max-width: 700px;
+            animation: fadeInUp 0.8s ease 0.1s both;
+        }
+
+        .hero h1 em { color: var(--accent); font-style: italic; }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: rgba(255,255,255,0.85);
+            max-width: 500px;
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        /* Search Box */
+        .search-box {
+            background: #fff;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 900px;
+            animation: fadeInUp 0.8s ease 0.3s both;
+        }
+
+        .search-tabs { display: flex; gap: 0.5rem; margin-bottom: 1.2rem; }
+
+        .search-tab {
+            padding: 0.5rem 1.2rem;
+            border: none;
+            background: transparent;
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        .search-tab.active { background: var(--primary); color: #fff; }
+        .search-tab:hover:not(.active) { background: var(--bg-warm); color: var(--text); }
+
+        .search-fields {
+            display: grid;
+            grid-template-columns: 2fr 1.5fr 1.5fr auto;
+            gap: 1rem;
+            align-items: end;
+        }
+
+        .search-group { display: flex; flex-direction: column; gap: 0.4rem; }
+
+        .search-group label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+        }
+
+        .search-group input,
+        .search-group select {
+            padding: 0.9rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            font-family: system-ui, -apple-system, sans-serif;
+            font-size: 1rem;
+            background: var(--bg);
+            color: var(--text);
+            transition: all 0.3s;
+        }
+
+        .search-group input:focus,
+        .search-group select:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.15);
+        }
+
+        .search-btn {
+            padding: 0.9rem 2rem;
+            background: var(--accent);
+            color: var(--primary-dark);
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: system-ui, -apple-system, sans-serif;
+            height: fit-content;
+        }
+
+        .search-btn:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(201, 169, 110, 0.3);
+        }
+
+        /* ========== FEATURED PROPERTIES ========== */
+        .featured {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .section-header-left h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header-left p { color: var(--text-muted); font-size: 1.05rem; }
+
+        .section-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s;
+            white-space: nowrap;
+        }
+
+        .section-link:hover { gap: 0.8rem; color: var(--accent); }
+
+        .properties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 2rem;
+        }
+
+        .property-card {
+            background: var(--surface);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .property-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+            border-color: transparent;
+        }
+
+        .property-img {
+            height: 260px;
+            background: linear-gradient(135deg, #334155, #1e293b);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .property-img::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.6) 100%);
+            z-index: 1;
+        }
+
+        .property-img i {
+            font-size: 4rem;
+            color: rgba(255,255,255,0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .property-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--accent);
+            color: var(--primary-dark);
+            padding: 0.4rem 1rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            z-index: 2;
+        }
+
+        .property-badge.rent { background: var(--primary); color: #fff; }
+
+        .property-fav {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.9);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--text-muted);
+            transition: all 0.3s;
+            z-index: 2;
+        }
+
+        .property-fav:hover { background: #fff; color: #EF4444; transform: scale(1.1); }
+
+        .property-body { padding: 1.5rem; }
+
+        .property-price {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .property-price span {
+            font-family: system-ui, -apple-system, sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .property-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        .property-location {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .property-meta {
+            display: flex;
+            gap: 1.5rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .property-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .property-meta i { color: var(--accent); }
+
+        /* ========== SERVICES ========== */
+        .services {
+            background: var(--primary-dark);
+            margin: 0;
+            max-width: 100%;
+            padding: 6rem 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .services::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(201, 169, 110, 0.08) 0%, transparent 70%);
+        }
+
+        .services .section-header-left h2,
+        .services .section-header-left p { color: #fff; }
+        .services .section-header-left p { opacity: 0.7; }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), transparent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover::before { transform: scaleX(1); }
+
+        .service-card:hover {
+            background: rgba(255,255,255,0.06);
+            transform: translateY(-5px);
+            border-color: rgba(201, 169, 110, 0.2);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(201, 169, 110, 0.1);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(201, 169, 110, 0.2);
+        }
+
+        .service-card h3 { font-size: 1.4rem; color: #fff; margin-bottom: 0.8rem; }
+
+        .service-card p { color: rgba(255,255,255,0.6); font-size: 0.95rem; line-height: 1.6; }
+
+        /* ========== WHY US ========== */
+        .why-us {
+            padding: 6rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .why-visual {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            height: 550px;
+            background: linear-gradient(135deg, var(--bg-warm), var(--border));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border);
+        }
+
+        .why-visual::before {
+            content: '';
+            position: absolute;
+            inset: 20px;
+            border: 2px solid var(--accent);
+            border-radius: 16px;
+            opacity: 0.3;
+        }
+
+        .why-visual i { font-size: 10rem; color: var(--primary); opacity: 0.1; }
+
+        .why-content h2 { font-size: 2.8rem; margin-bottom: 1.5rem; color: var(--text); }
+
+        .why-content > p {
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .why-list { display: flex; flex-direction: column; gap: 1.5rem; }
+
+        .why-item { display: flex; gap: 1.2rem; }
+
+        .why-number {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+            min-width: 40px;
+        }
+
+        .why-item h4 {
+            font-family: system-ui, -apple-system, sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.3rem;
+        }
+
+        .why-item p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; }
+
+        /* ========== LOCATIONS / MAP ========== */
+        .locations {
+            background: var(--bg-warm);
+            margin: 0;
+            max-width: 100%;
+            padding: 6rem 5%;
+            border-top: 1px solid var(--border);
+        }
+
+        .locations-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: start;
+        }
+
+        .location-info h2 { font-size: 2.5rem; margin-bottom: 1rem; color: var(--text); }
+
+        .location-info > p { color: var(--text-muted); margin-bottom: 2.5rem; line-height: 1.7; }
+
+        .location-cards { display: flex; flex-direction: column; gap: 1rem; }
+
+        .location-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .location-card:hover {
+            border-color: var(--accent);
+            box-shadow: var(--shadow);
+            transform: translateX(5px);
+        }
+
+        .location-card.active {
+            border-color: var(--accent);
+            background: linear-gradient(90deg, rgba(201,169,110,0.05), transparent);
+        }
+
+        .loc-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(201, 169, 110, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .loc-details h4 {
+            font-family: system-ui, -apple-system, sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.2rem;
+        }
+
+        .loc-details p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.3rem; }
+
+        .loc-details a { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; }
+
+        .map-container {
+            background: var(--surface);
+            border-radius: 24px;
+            overflow: hidden;
+            height: 500px;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: var(--shadow);
+        }
+
+        .map-placeholder { text-align: center; padding: 2rem; }
+
+        .map-placeholder i { font-size: 4rem; color: var(--accent); opacity: 0.4; margin-bottom: 1rem; }
+
+        .map-placeholder h3 { color: var(--text); margin-bottom: 0.5rem; }
+
+        .map-placeholder p { color: var(--text-muted); margin-bottom: 1.5rem; }
+
+        .map-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--primary);
+            color: #fff;
+            padding: 0.8rem 1.5rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .map-btn:hover { background: var(--primary-dark); transform: translateY(-2px); }
+
+        /* ========== CTA SECTION ========== */
+        .cta-section {
+            background: var(--primary);
+            margin: 0;
+            max-width: 100%;
+            padding: 5rem 5%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="0.5" x="0" y="0" width="100" height="100"/></svg>');
+            background-size: 30px 30px;
+        }
+
+        .cta-content { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+
+        .cta-content h2 { font-size: clamp(2rem, 4vw, 3.5rem); color: #fff; margin-bottom: 1rem; }
+
+        .cta-content p { color: rgba(255,255,255,0.7); font-size: 1.1rem; margin-bottom: 2rem; }
+
+        .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+        .btn-light {
+            background: #fff;
+            color: var(--primary);
+            padding: 1rem 2.5rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-light:hover { background: var(--accent); color: var(--primary-dark); transform: translateY(-3px); }
+
+        .btn-gold {
+            background: var(--accent);
+            color: var(--primary-dark);
+            padding: 1rem 2.5rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-gold:hover {
+            background: var(--accent-light);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(201, 169, 110, 0.3);
+        }
+
+        /* ========== LEGAL SECTIONS ========== */
+        .legal-section {
+            background: var(--bg);
+            margin: 0;
+            max-width: 100%;
+            padding: 5rem 5%;
+            border-top: 1px solid var(--border);
+        }
+
+        .legal-grid {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .legal-grid h3 {
+            font-family: system-ui, -apple-system, sans-serif;
+            font-size: 1.1rem;
+            color: var(--text);
+            margin: 2.5rem 0 0.75rem;
+            font-weight: 600;
+        }
+
+        .legal-grid h3:first-child { margin-top: 0; }
+
+        .legal-grid p, .legal-grid li {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.8;
+            margin-bottom: 0.75rem;
+        }
+
+        .legal-grid ul { margin-left: 1.25rem; margin-bottom: 1rem; }
+
+        .legal-grid li { margin-bottom: 0.4rem; }
+
+        .legal-grid a { color: var(--accent); text-decoration: none; }
+
+        .legal-grid a:hover { text-decoration: underline; }
+
+        .legal-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 1.25rem;
+            padding: 2.5rem;
+        }
+
+        .legal-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border), transparent);
+            margin: 5rem 0;
+            border: none;
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background: var(--primary-dark);
+            color: rgba(255,255,255,0.6);
+            padding: 4rem 5% 2rem;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand .logo {
+            color: #fff;
+            margin-bottom: 1rem;
+            display: inline-flex;
+        }
+
+        .footer-brand p {
+            line-height: 1.8;
+            font-size: 0.95rem;
+            max-width: 300px;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .footer-links h4 {
+            font-family: system-ui, -apple-system, sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #fff;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links ul { list-style: none; }
+
+        .footer-links li { margin-bottom: 0.8rem; }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover { color: var(--accent); }
+
+        .footer-social {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-social a:hover {
+            background: var(--accent);
+            color: var(--primary-dark);
+            transform: translateY(-3px);
+            border-color: var(--accent);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.4);
+        }
+
+        /* ========== ANIMATIONS ========== */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background: #fff;
+                flex-direction: column;
+                padding: 5rem 2rem;
+                transition: right 0.4s ease;
+                box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active { right: 0; }
+            .nav-links a { color: var(--text-muted) !important; }
+            .mobile-menu-btn { display: block; z-index: 1001; }
+
+            .hero {
+                padding-bottom: 4rem;
+                min-height: auto;
+                padding-top: 6rem;
+            }
+
+            .search-fields { grid-template-columns: 1fr; }
+            .properties-grid { grid-template-columns: 1fr; }
+            .why-grid, .locations-grid { grid-template-columns: 1fr; }
+            .why-visual { height: 300px; order: -1; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            .legal-box { padding: 1.5rem; }
+        }
+
+        @media (max-width: 480px) {
+            .footer-grid { grid-template-columns: 1fr; }
+            .section-header { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="#" class="logo">
+            <i class="fas fa-building"></i>
+            Becker & Partner
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#featured">Angebote</a></li>
+            <li><a href="#services">Leistungen</a></li>
+            <li><a href="#about">Über uns</a></li>
+            <li><a href="#locations">Standorte</a></li>
+            <li><a href="#contact" class="nav-cta">Kontakt</a></li>
+        </ul>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü öffnen">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-star"></i>
+                Marktführer in Musterstadt
+            </div>
+            <h1>Exklusive Immobilien. <em>Persönlicher Service.</em></h1>
+            <p>Ob Traumhaus, Kapitalanlage oder Gewerbeobjekt – wir begleiten Sie mit Fachwissen, Diskretion und Leidenschaft zum perfekten Deal.</p>
+            
+            <div class="search-box">
+                <div class="search-tabs">
+                    <button class="search-tab active" onclick="setSearchTab(this, 'buy')">Kaufen</button>
+                    <button class="search-tab" onclick="setSearchTab(this, 'rent')">Mieten</button>
+                    <button class="search-tab" onclick="setSearchTab(this, 'commercial')">Gewerbe</button>
+                </div>
+                <div class="search-fields">
+                    <div class="search-group">
+                        <label>Ort, Stadtteil oder PLZ</label>
+                        <input type="text" placeholder="z. B. Musterstadt, Berlin, München...">
+                    </div>
+                    <div class="search-group">
+                        <label>Immobilientyp</label>
+                        <select>
+                            <option>Alle Typen</option>
+                            <option>Wohnung</option>
+                            <option>Haus</option>
+                            <option>Grundstück</option>
+                            <option>Gewerbe</option>
+                        </select>
+                    </div>
+                    <div class="search-group">
+                        <label>Preis bis</label>
+                        <select>
+                            <option>Beliebig</option>
+                            <option>500.000 €</option>
+                            <option>1.000.000 €</option>
+                            <option>2.000.000 €</option>
+                            <option>5.000.000 €+</option>
+                        </select>
+                    </div>
+                    <button class="search-btn" onclick="alert('Hier würde die Immobiliensuche starten!')">
+                        <i class="fas fa-magnifying-glass"></i>
+                        Suchen
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Properties -->
+    <section class="featured" id="featured">
+        <div class="section-header">
+            <div class="section-header-left">
+                <h2>Aktuelle Highlights</h2>
+                <p>Handverlesene Immobilien in exklusiven Lagen</p>
+            </div>
+            <a href="#" class="section-link">
+                Alle anzeigen <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+        <div class="properties-grid">
+            <div class="property-card fade-in">
+                <div class="property-img">
+                    <i class="fas fa-house-chimney"></i>
+                    <span class="property-badge">Kauf</span>
+                    <button class="property-fav" aria-label="Zur Merkliste hinzufügen"><i class="far fa-heart"></i></button>
+                </div>
+                <div class="property-body">
+                    <div class="property-price">1.450.000 €</div>
+                    <div class="property-title">Villa mit Panoramablick</div>
+                    <div class="property-location">
+                        <i class="fas fa-location-dot"></i> Musterstadt, Bergstraße
+                    </div>
+                    <div class="property-meta">
+                        <span><i class="fas fa-ruler-combined"></i> 320 m²</span>
+                        <span><i class="fas fa-bed"></i> 5 Zimmer</span>
+                        <span><i class="fas fa-bath"></i> 3 Bad</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="property-card fade-in">
+                <div class="property-img">
+                    <i class="fas fa-city"></i>
+                    <span class="property-badge rent">Miete</span>
+                    <button class="property-fav" aria-label="Zur Merkliste hinzufügen"><i class="far fa-heart"></i></button>
+                </div>
+                <div class="property-body">
+                    <div class="property-price">2.800 € <span>/ Monat</span></div>
+                    <div class="property-title">Penthouse im Zentrum</div>
+                    <div class="property-location">
+                        <i class="fas fa-location-dot"></i> Musterstadt, Innenstadt
+                    </div>
+                    <div class="property-meta">
+                        <span><i class="fas fa-ruler-combined"></i> 145 m²</span>
+                        <span><i class="fas fa-bed"></i> 3 Zimmer</span>
+                        <span><i class="fas fa-bath"></i> 2 Bad</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="property-card fade-in">
+                <div class="property-img">
+                    <i class="fas fa-warehouse"></i>
+                    <span class="property-badge">Kauf</span>
+                    <button class="property-fav" aria-label="Zur Merkliste hinzufügen"><i class="far fa-heart"></i></button>
+                </div>
+                <div class="property-body">
+                    <div class="property-price">3.200.000 €</div>
+                    <div class="property-title">Gewerbeobjekt mit Potential</div>
+                    <div class="property-location">
+                        <i class="fas fa-location-dot"></i> Musterstadt, Gewerbegebiet Nord
+                    </div>
+                    <div class="property-meta">
+                        <span><i class="fas fa-ruler-combined"></i> 850 m²</span>
+                        <span><i class="fas fa-car"></i> 20 Stellpl.</span>
+                        <span><i class="fas fa-building"></i> Büro</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="services">
+        <div class="section-header" style="max-width: 1200px; margin: 0 auto 3rem; padding: 0 5%;">
+            <div class="section-header-left">
+                <h2>Unsere Leistungen</h2>
+                <p>Vom ersten Beratungsgespräch bis zum Notartermin – wir sind an Ihrer Seite</p>
+            </div>
+        </div>
+        <div class="services-grid">
+            <div class="service-card fade-in">
+                <div class="service-icon">
+                    <i class="fas fa-house-chimney-window"></i>
+                </div>
+                <h3>Verkaufen</h3>
+                <p>Wertermittlung, Exposé-Erstellung, Besichtigungsmanagement und Verhandlungsführung bis zum erfolgreichen Notartermin.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">
+                    <i class="fas fa-key"></i>
+                </div>
+                <h3>Kaufen & Mieten</h3>
+                <p>Zugang zu exklusiven Off-Market-Angeboten. Wir finden die Immobilie, die zu Ihren Wünschen und Ihrem Budget passt.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Kapitalanlagen</h3>
+                <p>Renditeberechnung, Standortanalyse und Mietmanagement. Wir maximieren den Wert Ihres Immobilienportfolios.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">
+                    <i class="fas fa-file-contract"></i>
+                </div>
+                <h3>Bewertung & Gutachten</h3>
+                <p>Professionelle Wertermittlung nach anerkannten Standards (IVD, BelWiG) für Privat- und Geschäftskunden.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us -->
+    <section class="why-us" id="about">
+        <div class="why-grid">
+            <div class="why-visual fade-in">
+                <i class="fas fa-handshake"></i>
+            </div>
+            <div class="why-content fade-in">
+                <span class="section-label">Warum Becker & Partner</span>
+                <h2>Vertrauen ist der beste Grundstein</h2>
+                <p>Seit 1998 begleiten wir Käufer, Verkäufer und Investoren durch den Immobilienmarkt. Unser Erfolg basiert auf Transparenz, Marktkenntnis und der Leidenschaft, die perfekte Lösung zu finden.</p>
+                <div class="why-list">
+                    <div class="why-item">
+                        <div class="why-number">01</div>
+                        <div>
+                            <h4>Marktkenntnis vor Ort</h4>
+                            <p>Über 25 Jahre Erfahrung in der Region. Wir kennen jeden Stadtteil, jede Straße, jeden Markttrend.</p>
+                        </div>
+                    </div>
+                    <div class="why-item">
+                        <div class="why-number">02</div>
+                        <div>
+                            <h4>Diskretion & Exklusivität</h4>
+                            <p>Off-Market-Angebote, vertrauliche Verkäufe und persönliche Beratung auf höchstem Niveau.</p>
+                        </div>
+                    </div>
+                    <div class="why-item">
+                        <div class="why-number">03</div>
+                        <div>
+                            <h4>360°-Service</h4>
+                            <p>Von der Finanzierungsberatung über Renovierungsmanagement bis zur Nachkaufbegleitung.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Locations -->
+    <section class="locations" id="locations">
+        <div class="locations-grid">
+            <div class="location-info fade-in">
+                <span class="section-label">Standorte</span>
+                <h2>Wir sind für Sie da</h2>
+                <p>Mit drei Büros in der Region sind wir immer in Ihrer Nähe – persönlich, erreichbar und engagiert.</p>
+                <div class="location-cards">
+                    <div class="location-card active" onclick="selectLocation(this)">
+                        <div class="loc-icon">
+                            <i class="fas fa-location-dot"></i>
+                        </div>
+                        <div class="loc-details">
+                            <h4>Hauptstelle Musterstadt</h4>
+                            <p>Marktplatz 1, 12345 Musterstadt</p>
+                            <a href="tel:+491234567890">+49 123 4567890</a>
+                        </div>
+                    </div>
+                    <div class="location-card" onclick="selectLocation(this)">
+                        <div class="loc-icon">
+                            <i class="fas fa-location-dot"></i>
+                        </div>
+                        <div class="loc-details">
+                            <h4>Filiale Neustadt</h4>
+                            <p>Bahnhofstraße 45, 12346 Neustadt</p>
+                            <a href="tel:+491234567891">+49 123 4567891</a>
+                        </div>
+                    </div>
+                    <div class="location-card" onclick="selectLocation(this)">
+                        <div class="loc-icon">
+                            <i class="fas fa-location-dot"></i>
+                        </div>
+                        <div class="loc-details">
+                            <h4>Filiale Altstadt</h4>
+                            <p>Rheinuferpromenade 12, 12347 Altstadt</p>
+                            <a href="tel:+491234567892">+49 123 4567892</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="map-container fade-in">
+                <div class="map-placeholder">
+                    <i class="fas fa-map"></i>
+                    <h3>Kartenansicht</h3>
+                    <p>Hier können Sie später eine interaktive Karte<br>mit allen Standorten einbetten.</p>
+                    <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="map-btn">
+                        <i class="fas fa-location-arrow"></i>
+                        Route planen
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section" id="contact">
+        <div class="cta-content">
+            <h2>Bereit für den nächsten Schritt?</h2>
+            <p>Ob Sie verkaufen, kaufen oder vermieten möchten – wir beraten Sie unverbindlich und kostenlos. Vereinbaren Sie jetzt Ihr persönliches Gespräch.</p>
+            <div class="cta-buttons">
+                <a href="tel:+491234567890" class="btn-light">
+                    <i class="fas fa-phone"></i>
+                    Anrufen
+                </a>
+                <a href="mailto:info@becker-partner.de" class="btn-gold">
+                    <i class="fas fa-envelope"></i>
+                    E-Mail schreiben
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <hr class="legal-divider">
+
+    <!-- Impressum -->
+    <section id="impressum">
+        <div class="section-header" style="max-width: 800px; margin: 0 auto 3rem; padding: 0 5%;">
+            <div class="section-header-left">
+                <h2>Impressum</h2>
+                <p>Angaben gemäß § 5 TMG</p>
+            </div>
+        </div>
+        <div class="legal-grid">
+            <div class="legal-box">
+                <h3>Hinweis zur Demo-Website</h3>
+                <p>
+                    <strong>"Becker & Partner Immobilien"</strong> ist ein fiktives Unternehmen und dient ausschließlich als Beispiel-Website zur Demonstration von Webdesign-Leistungen. 
+                    Alle angegebenen Daten (Adressen, Telefonnummern, Preise, Immobilien) sind frei erfunden und nicht real. Es werden keine realen Dienstleistungen angeboten.
+                </p>
+
+                <h3>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h3>
+                <p>
+                    Lasse Schäfer<br>
+                    Trift 1a<br>
+                    37691 Boffzen<br>
+                    Deutschland
+                </p>
+
+                <h3>Kontakt</h3>
+                <p>
+                    E-Mail: <a href="mailto:lasseschafer87@gmail.com">lasseschafer87@gmail.com</a>
+                </p>
+
+                <h3>Haftung für Inhalte</h3>
+                <p>
+                    Diese Seite ist eine reine Demo-Website. Alle Inhalte dienen ausschließlich der Veranschaulichung von Webdesign-Fähigkeiten. 
+                    Es werden keine realen Dienstleistungen angeboten und keine vertraglichen Beziehungen begründet. Für die Richtigkeit, Vollständigkeit und Aktualität der Demo-Inhalte wird keine Gewähr übernommen.
+                </p>
+
+                <h3>Haftung für Links</h3>
+                <p>
+                    Diese Website enthält Links zu externen Webseiten Dritter (z. B. Google Maps, Unsplash, Cloudflare). 
+                    Auf die Inhalte dieser verlinkten Seiten haben wir keinen Einfluss. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber verantwortlich.
+                </p>
+
+                <h3>Urheberrecht</h3>
+                <p>
+                    Die durch den Seitenbetreiber erstellten Inhalte und Werke auf dieser Website unterliegen dem deutschen Urheberrecht. 
+                    Das Favicon und das Layout sind Eigenkreationen des Betreibers. Die verwendeten Icons stammen von Font Awesome (siehe Bildnachweise).
+                </p>
+
+                <h3>Streitschlichtung</h3>
+                <p>
+                    Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer">https://ec.europa.eu/consumers/odr</a>.<br>
+                    Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <hr class="legal-divider">
+
+    <!-- Datenschutz -->
+    <section id="datenschutz">
+        <div class="section-header" style="max-width: 800px; margin: 0 auto 3rem; padding: 0 5%;">
+            <div class="section-header-left">
+                <h2>Datenschutzerklärung</h2>
+                <p>Informationen zur Verarbeitung personenbezogener Daten gemäß Art. 13 DSGVO</p>
+            </div>
+        </div>
+        <div class="legal-grid">
+            <div class="legal-box">
+                <h3>1. Verantwortlicher</h3>
+                <p>
+                    Lasse Schäfer<br>
+                    Trift 1a<br>
+                    37691 Boffzen<br>
+                    Deutschland<br>
+                    E-Mail: <a href="mailto:lasseschafer87@gmail.com">lasseschafer87@gmail.com</a>
+                </p>
+
+                <h3>2. Hosting & Server-Logfiles</h3>
+                <p>
+                    Diese Website wird über einen Hosting-Dienst bereitgestellt. Beim Aufruf der Seite werden automatisch technisch notwendige Verbindungsdaten (IP-Adresse, Zeitstempel, angeforderte URL, Browsertyp, HTTP-Status) in Server-Logfiles gespeichert. Diese Daten sind für den technischen Betrieb der Website erforderlich und werden nach spätestens 7 Tagen gelöscht. Die Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der technischen Bereitstellung).
+                </p>
+
+                <h3>3. Externe Dienste & Datenübermittlung</h3>
+                <p>
+                    <strong>Font Awesome (CDN):</strong> Diese Website nutzt Icons von Font Awesome, die über das Content Delivery Network (CDN) von Cloudflare (Cloudflare, Inc., 101 Townsend Street, San Francisco, CA 94107, USA) geladen werden. Beim Laden können Ihre IP-Adresse und Browserdaten an Cloudflare übermittelt werden. Cloudflare ist unter dem EU-US Data Privacy Framework zertifiziert. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.
+                </p>
+                <p>
+                    <strong>Unsplash:</strong> Das Hero-Hintergrundbild wird von Unsplash Inc. (USA) geladen. Beim Aufruf wird Ihre IP-Adresse an Unsplash übermittelt. Unsplash ist unter dem EU-US Data Privacy Framework zertifiziert. Das Bild steht unter der Unsplash License und darf frei verwendet werden. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.
+                </p>
+                <p>
+                    <strong>Google Maps:</strong> Der Link "Route planen" führt zu Google Maps (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland). Es wird keine Google Maps-Karte eingebettet; erst beim Klick auf den externen Link verlassen Sie diese Website.
+                </p>
+
+                <h3>4. Keine Cookies, kein Tracking, keine Analyse-Tools</h3>
+                <p>
+                    Diese Demo-Website verwendet <strong>keine Cookies</strong>, <strong>kein Tracking</strong>, keine Analyse-Tools (wie Google Analytics) und keine Werbe- oder Marketing-Tools. Es werden keine personenbezogenen Daten aktiv erfasst, gespeichert oder an Dritte zu Marketingzwecken weitergegeben.
+                </p>
+
+                <h3>5. Kontaktformular / E-Mail-Kontakt</h3>
+                <p>
+                    Aktuell ist kein Kontaktformular vorhanden. Bei Kontaktaufnahme per E-Mail werden Ihre angegebenen Daten ausschließlich zur Bearbeitung Ihrer Anfrage verwendet und nicht an Dritte weitergegeben. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.
+                </p>
+
+                <h3>6. Speicherdauer</h3>
+                <p>
+                    Personenbezogene Daten werden nur so lange gespeichert, wie es für die jeweilige Verarbeitung erforderlich ist. Server-Logfiles werden nach spätestens 7 Tagen gelöscht.
+                </p>
+
+                <h3>7. Ihre Rechte</h3>
+                <p>Sie haben folgende Rechte gegenüber dem Verantwortlichen:</p>
+                <ul>
+                    <li>Recht auf Auskunft über gespeicherte Daten (Art. 15 DSGVO)</li>
+                    <li>Recht auf Berichtigung unrichtiger Daten (Art. 16 DSGVO)</li>
+                    <li>Recht auf Löschung Ihrer Daten (Art. 17 DSGVO)</li>
+                    <li>Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
+                    <li>Recht auf Datenübertragbarkeit (Art. 20 DSGVO)</li>
+                    <li>Recht auf Widerspruch gegen die Verarbeitung (Art. 21 DSGVO)</li>
+                    <li>Recht auf Beschwerde bei einer Aufsichtsbehörde (Art. 77 DSGVO)</li>
+                </ul>
+                <p>Zur Ausübung Ihrer Rechte kontaktieren Sie uns unter: <a href="mailto:lasseschafer87@gmail.com">lasseschafer87@gmail.com</a></p>
+            </div>
+        </div>
+    </section>
+
+    <hr class="legal-divider">
+
+    <!-- Bildnachweise -->
+    <section id="bildnachweise">
+        <div class="section-header" style="max-width: 800px; margin: 0 auto 3rem; padding: 0 5%;">
+            <div class="section-header-left">
+                <h2>Bildnachweise & Lizenzen</h2>
+                <p>Quellenangaben zu verwendeten Medien und Ressourcen</p>
+            </div>
+        </div>
+        <div class="legal-grid">
+            <div class="legal-box">
+                <h3>Fotografien</h3>
+                <p>
+                    <strong>Hero-Hintergrundbild:</strong> "Modern house exterior" von <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer">Unsplash</a>. 
+                    Lizenz: <a href="https://unsplash.com/license" target="_blank" rel="noopener noreferrer">Unsplash License</a> – freie Nutzung für kommerzielle und nicht-kommerzielle Zwecke ohne Attribution.
+                </p>
+
+                <h3>Icons & Schriftarten</h3>
+                <p>
+                    <strong>Font Awesome 6.5.0:</strong> Icons und Schriftarten von Font Awesome, Inc. 
+                    Lizenz: Icons – <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>; 
+                    Schriftarten – <a href="https://scripts.sil.org/OFL" target="_blank" rel="noopener noreferrer">SIL OFL 1.1</a>; 
+                    Code – <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer">MIT License</a>. 
+                    Quelle: <a href="https://cdnjs.cloudflare.com" target="_blank" rel="noopener noreferrer">cdnjs.cloudflare.com</a> (Cloudflare CDN).
+                </p>
+
+                <h3>Eigene Inhalte</h3>
+                <p>
+                    <strong>Favicon / Logo:</strong> Eigenkreation durch Lasse Schäfer. Alle Rechte vorbehalten.<br>
+                    <strong>Layout & Design:</strong> Eigenkreation durch Lasse Schäfer. Alle Rechte vorbehalten.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <i class="fas fa-building"></i>
+                    Becker & Partner
+                </a>
+                <p>Demo-Website für Webdesign-Leistungen. "Becker & Partner" ist ein fiktives Unternehmen. Betrieben von Lasse Schäfer.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="X / Twitter"><i class="fab fa-x-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Immobilien</h4>
+                <ul>
+                    <li><a href="#">Kaufen</a></li>
+                    <li><a href="#">Mieten</a></li>
+                    <li><a href="#">Gewerbe</a></li>
+                    <li><a href="#">Neubau</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Service</h4>
+                <ul>
+                    <li><a href="#">Bewertung</a></li>
+                    <li><a href="#">Finanzierung</a></li>
+                    <li><a href="#">Umzug</a></li>
+                    <li><a href="#">Renovierung</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Rechtliches</h4>
+                <ul>
+                    <li><a href="#impressum">Impressum</a></li>
+                    <li><a href="#datenschutz">Datenschutz</a></li>
+                    <li><a href="#bildnachweise">Bildnachweise</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Lasse Schäfer – Demo-Website. Alle Rechte vorbehalten.</p>
+            <p><a href="#impressum" style="color: rgba(255,255,255,0.4); text-decoration: none;">Impressum</a> · <a href="#datenschutz" style="color: rgba(255,255,255,0.4); text-decoration: none;">Datenschutz</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar Scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-xmark');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                mobileMenuBtn.querySelector('i').classList.remove('fa-xmark');
+            });
+        });
+
+        // Search Tabs
+        function setSearchTab(btn, type) {
+            document.querySelectorAll('.search-tab').forEach(t => t.classList.remove('active'));
+            btn.classList.add('active');
+        }
+
+        // Location Cards
+        function selectLocation(card) {
+            document.querySelectorAll('.location-card').forEach(c => c.classList.remove('active'));
+            card.classList.add('active');
+        }
+
+        // Intersection Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>s
